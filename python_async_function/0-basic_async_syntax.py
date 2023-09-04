@@ -6,7 +6,7 @@ import random
 
 async def wait_random(max_delay: int = 10) -> float:
     """Return a random float number"""
-    x: float = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
+    num: float = random.uniform(0, max_delay)
+    await asyncio.sleep(num)
 
-    return x
+    return num
