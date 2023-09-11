@@ -5,7 +5,7 @@ from pymongo import MongoClient
 
 
 if __name__ == "__main__":
-    MONGO_URI = "mongodb://localhost:27017"
+    MONGO_URI = "mongodb://localhost"
     client = MongoClient(MONGO_URI)
     db = client['logs']
     col = db['nginx']
