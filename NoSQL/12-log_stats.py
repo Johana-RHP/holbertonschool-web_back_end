@@ -5,17 +5,17 @@ from pymongo import MongoClient
 
 
 if __name__ == "__main__":
-    MONGO_URI = "mongodb://localhost"
-    client = MongoClient(MONGO_URI)
+    client = MongoClient('mongodb://127.0.0.1:27017')
     db = client['logs']
     col = db['nginx']
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
-    print(f'{col.count:documents({})} logs')
-    print('Methods:')
+    print(f"{col.count_documents({})} logs")
+    print("Methods:")
+
     for method in methods:
-        count_method = db_nginx.count_documents({'method': method})
-        print(f'\tmethod {method}: {count_method}')
+        print(f"\tmethod {method}: {col.count_documents({'method': method})}")
 
     sc = "status check"
-    print(f"{col.count_documents({'method': 'GET','path': '/status'})} {sc}")
+    check = col.count_documents({'method': 'GET','path': '/status'})
+    print(f"{check} {sc}")
