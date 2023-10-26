@@ -33,4 +33,5 @@ class Server:
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
-        return pd = data[start+1:end+1]
+        pd = data[start+1:end+1]
+        return pd
