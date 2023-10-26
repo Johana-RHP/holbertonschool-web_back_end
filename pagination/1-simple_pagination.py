@@ -33,7 +33,4 @@ class Server:
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
-        range: Tuple = index_range(page, page_size)
-        pagination: List = self.dataset()
-
-        return (pagination[range[0]:range[1]])
+        return pd = data[start+1:end+1]
