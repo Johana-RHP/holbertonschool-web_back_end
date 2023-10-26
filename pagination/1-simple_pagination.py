@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Simple pagination """
+"""index_range that takes two integers"""
 import csv
 import math
 from typing import List, Tuple
@@ -29,8 +29,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """takes two integer arguments page and page_size"""
+        """Get the page"""
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
-            return data[start+1:end+1]
+        range: Tuple = index_range(page, page_size)
+        pagination: List = self.dataset()
+
+        return (pagination[range[0]:range[1]])
