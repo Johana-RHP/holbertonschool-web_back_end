@@ -1,10 +1,5 @@
 export default class ClassRoom {
-  constructor(maxStudentsSize) {
+  constructor(maxStudentsSize = 0) {
     this._maxStudentsSize = maxStudentsSize;
-  }
-  
-  // Getter method to access the maxStudentsSize attribute
-  get maxStudentsSize() {
-    return this._maxStudentsSize;
   }
 }
