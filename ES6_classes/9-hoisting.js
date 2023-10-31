@@ -1,4 +1,4 @@
-/ Class hasn't hoisting
+// Class hasn't hoisting
 // How Normal functions
 
 export class HolbertonClass {
