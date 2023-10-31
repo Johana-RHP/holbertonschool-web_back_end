@@ -1,6 +1,5 @@
-// constants.js
 export function taskFirst() {
-  const task = 'I prefer const when I can.'; // Usando const en lugar de var
+  const task = 'I prefer const when I can.';
   return task;
 }
 
@@ -9,7 +8,7 @@ export function getLast() {
 }
 
 export function taskNext() {
-  let combination = 'But sometimes let'; // Usando let en lugar de var
+  let combination = 'But sometimes let';
   combination += getLast();
 
   return combination;
