@@ -1,32 +1,23 @@
-export default class Airport {
-  constructor(name = '', code = '') {
-    this.name = name;
-    this.code = code;
+class Airport {
+  constructor(name, code) {
+    this._name = name;
+    this._code = code;
   }
 
-  get [Symbol.toStringTag]() {
-    return `${this.code}`;
-  }
-
+  // Getter for 'name'
   get name() {
     return this._name;
   }
 
-  set name(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('name must be a string');
-    }
-    this._name = value;
-  }
-
+  // Getter for 'code'
   get code() {
     return this._code;
   }
 
-  set code(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('code must be a string');
-    }
-    this._code = value;
+  // Override the default string description
+  toString() {
+    return this._code; // Return the airport code
   }
 }
+
+export default Airport;
