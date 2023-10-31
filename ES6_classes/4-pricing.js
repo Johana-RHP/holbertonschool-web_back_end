@@ -1,54 +1,50 @@
-import Currency from "./3-currency.js";
+import Currency from './3-currency';
 
-class Pricing {
-  constructor(amount, currency) {
-    this._amount = 0;
-    this._currency = new Currency("", "");
-
+export default class Pricing {
+  constructor(amount = '', currency) {
     this.amount = amount;
     this.currency = currency;
   }
 
-  // Getter and setter for 'amount'
+  displayFullPrice() {
+    const code = (this.currency._code);
+    const name = (this.currency._name);
+    const money = `${this.amount} ${name} (${code})`;
+
+    return money;
+  }
+
+  static convertPrice(amount = 0, conversionRate = 0) {
+    if (typeof amount !== 'number') {
+      throw new TypeError('amount must be a string');
+    }
+
+    if (typeof conversionRate !== 'number') {
+      throw new TypeError('conversionRate must be a string');
+    }
+
+    return (amount * conversionRate);
+  }
+
   get amount() {
     return this._amount;
   }
 
   set amount(value) {
-    if (typeof value === "number") {
-      this._amount = value;
-    } else {
-      throw new TypeError("Amount must be a number");
+    if (typeof value !== 'number') {
+      throw new TypeError('amount must be a number');
     }
+    this._amount = value;
   }
 
-  // Getter and setter for 'currency'
   get currency() {
     return this._currency;
   }
 
   set currency(value) {
-    if (value instanceof Currency) {
-      this._currency = value;
-    } else {
-      throw new TypeError("Currency must be an instance of the Currency class");
+    if (!(value instanceof Currency)) {
+      throw new TypeError('currency must be a Currency');
     }
-  }
-
-  // Method to display the full price
-  displayFullPrice() {
-    return `${this.amount} ${this.currency.name} (${this.currency.code})`;
-  }
-
-  // Static method to convert the price using a conversion rate
-  static convertPrice(amount, conversionRate) {
-    if (typeof amount === "number" && typeof conversionRate === "number") {
-      return amount * conversionRate;
-    } else {
-      throw new TypeError("Amount and conversionRate must be numbers");
-    }
+    this._currency = value;
   }
 }
-
-export default Pricing;
-
